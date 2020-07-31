@@ -1,7 +1,6 @@
 package com.example.diceroller
 
 import android.graphics.Color
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -28,7 +27,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun rollDice() {
-        val diceShow = when (Random().nextInt(6) + 1) {
+        val randomNumber = Random().nextInt(6) + 1
+        val diceShow = when (randomNumber) {
             1 -> R.drawable.dice_1
             2 -> R.drawable.dice_2
             3 -> R.drawable.dice_3
@@ -37,6 +37,8 @@ class MainActivity : AppCompatActivity() {
             else -> R.drawable.dice_6
         }
         diceImage.setImageResource(diceShow)
+        btnRoll.text = "$randomNumber"
+        //Toast.makeText(this,"$randomNumber", Toast.LENGTH_SHORT).show()
 
     }
 
